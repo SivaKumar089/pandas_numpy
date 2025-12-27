@@ -50,4 +50,21 @@ print(df)
 # df['experience_years'] =(pd.Timestamp.today()- pd.to_datetime(df['join_date'])).dt.days // 365
 # print(df)
 
-print(df.loc[df.groupby('department')['salary'].idxmax(),'name'])
+# print(df.loc[df.groupby('department')['salary'].idxmax(),'name'])
+
+# df.loc[df['name'] =='Daniel','salary']=75000
+
+new_row = {
+    "id": 9,
+    "name": "Vikram",
+    "age":28,
+    "department": "IT",
+    "salary": 80000,
+    "join_date": "2023-01-01"
+}
+
+df = df._append(new_row, ignore_index=True)
+# df = df[df['name'] != 'Vikram'] 
+
+df.to_csv("Employees.csv", index=False)
+print(df)
